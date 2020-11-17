@@ -1,0 +1,77 @@
+.animated-grid{
+    height:100vh;
+    display:grid;
+    gap:1rem;
+
+    grid-template-areas: 
+    "AA AA BB CC"
+    "AA AA DD EE"
+    "FF GG HH EE"
+    "FF GG HH EE";
+
+    grid-template-columns: repeat(4, auto);
+    grid-template-rows: repeat(2, auto);
+
+    --stagger-delay: 100ms;
+}
+
+.card{
+    background-color: rgb(36,243,147);
+    animation: cardEntrance 700ms ease-out;
+    animation-fill-mode: backwards;
+}
+
+@media screen and (min-width: 600px) {
+    .card:nth-child(1){
+        grid-area: AA;
+        animation-delay: calc(1 * var(--stagger-delay));
+    }
+
+    .card:nth-child(2){
+        grid-area: BB;
+        animation-delay: calc(2 * var(--stagger-delay));
+    }
+    .card:nth-child(3){
+        grid-area: CC;
+        animation-delay: calc(3 * var(--stagger-delay));
+    }
+
+    .card:nth-child(4){
+        grid-area: DD;
+        animation-delay: calc(4 * var(--stagger-delay));
+    }
+
+    .card:nth-child(5){
+        grid-area: EE;
+        animation-delay: calc(5 * var(--stagger-delay));
+    }
+
+    .card:nth-child(6){
+        grid-area: FF;
+        animation-delay: calc(6 * var(--stagger-delay));
+    }
+
+    .card:nth-child(7){
+        grid-area: GG;
+        animation-delay: calc(7 * var(--stagger-delay));
+    }
+
+    .card:nth-child(8){
+        grid-area: HH;
+        animation-delay: calc(8 * var(--stagger-delay));
+    }
+}
+
+@keyframes cardEntrance{
+    from {
+        opacity: 0;
+        transform: scale(0.3);
+        filter: hue-rotate(180deg);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+        filter: hue-rotate(0deg);
+    }
+}
+
